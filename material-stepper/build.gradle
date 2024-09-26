@@ -18,14 +18,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            testCoverageEnabled true
-        }
-    }
-
-    testOptions {
-        //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
-        unitTests.includeAndroidResources = true
     }
 
     lintOptions {
