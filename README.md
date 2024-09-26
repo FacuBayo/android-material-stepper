@@ -64,9 +64,18 @@ Moreover, you can find there other examples, e.g. how to persist state on rotati
   
 ## Getting started
 
-### Download (from JCenter)
+### Download (from Jitpack)
 ```groovy
-compile 'com.stepstone.stepper:material-stepper:4.3.1'
+dependencies {
+  implementation 'com.github.javaherisaber:android-material-stepper:5.0.1'
+}
+
+allprojects {
+  repositories {
+    // other repos
+    maven { url 'https://jitpack.io' }
+  }
+}
 ```
 
 *Note:* This library adds a transitive dependency to AppCompat `25.4.0`
