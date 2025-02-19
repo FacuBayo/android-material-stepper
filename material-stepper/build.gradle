@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 group='com.github.FacuBayo'
 
@@ -38,4 +40,17 @@ dependencies {
     }
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     testImplementation "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.findByName("release") // ✅ Solución para evitar el error
+                groupId = 'com.github.FacuBayo'
+                artifactId = 'android-material-stepper'
+                version = '1.0.0'
+            }
+        }
+    }
 }
